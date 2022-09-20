@@ -12,7 +12,7 @@ use Acesoft\LottoApp\TermService;
 
 //▶ pagination url
 $param1 = Utils::getParameters(array('page','s_ca_no'))."&s_ca_no[]=".@array_pop(array_filter($_GET['s_ca_no']));
-$list_url = "http://".$_SERVER[HTTP_HOST].$_SERVER[PHP_SELF]."?".$param1;
+$list_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?".$param1;
 
 
 if($_SESSION['ss_mb_id'] ) {

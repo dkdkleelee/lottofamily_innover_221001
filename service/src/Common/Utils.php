@@ -46,7 +46,7 @@ class Utils {
     public static function getPagination($total_page, $cur_page, $list_url='', $page_per_block='10', $page_param_name='page')
     {
 
-            if(!$list_url) $list_url = "http://".$_SERVER[HTTP_HOST].$_SERVER[DOCUMENT_URI]."?";
+            if(!$list_url) $list_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['DOCUMENT_URI']."?";
 
             $cur_page = ($cur_page) ? $cur_page : 1;
             $total_block = ceil($total_page/$page_per_block);
@@ -83,7 +83,7 @@ class Utils {
     public static function getBasicPagination($total_page, $cur_page, $list_url='', $page_per_block='10', $page_param_name='page')
     {
 
-            if(!$list_url) $list_url = "http://".$_SERVER[HTTP_HOST].$_SERVER[DOCUMENT_URI]."?";
+            if(!$list_url) $list_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['DOCUMENT_URI']."?";
 
             $cur_page = ($cur_page) ? $cur_page : 1;
             $total_block = ceil($total_page/$page_per_block);
@@ -118,6 +118,12 @@ class Utils {
     {
 		array_push($except_array, array('nocache'));
 
+		//if(isset($_POST) && isset($_GET)) {
+		//if(count($_POST) == 0 && count($_GET) == 0) {
+		if(empty($_POST) && empty($_GET)){
+			return null;
+		}
+		
         $temp_param = array_merge($_POST, $_GET);
         foreach($temp_param as $key => $value) {
             if($type=='except') {
@@ -130,7 +136,7 @@ class Utils {
                 }
             }
         }
-        $param = (count($param) > 0) ? implode("&", $param) : "";
+        $param = (count(array($param)) > 0) ? implode("&", $param) : "";
         return $param;
     }
 

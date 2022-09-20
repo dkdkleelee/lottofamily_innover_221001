@@ -11,7 +11,7 @@ use \Acesoft\LottoApp\Member\User as User;
 
 //▶ pagination url
 $param1 = Utils::getParameters(array('page','s_ca_no'))."&s_ca_no[]=".@array_pop(array_filter($_GET['s_ca_no']));
-$list_url = "http://".$_SERVER[HTTP_HOST].$_SERVER[PHP_SELF]."?".$param1;
+$list_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?".$param1;
 
 
 // term service
@@ -166,7 +166,7 @@ include_once(G5_ADMIN_PATH."/admin.head.php");
 					<ul class="calendar-memo">
 				<?
 					
-						for($l=0; $l<count($status_list[$date]['undone']); $l++) { 
+						for($l=0; $l<count(array($status_list[$date]['undone'])); $l++) { 
 				?>
 						<li <?=($status_list[$date]['undone'][$l]['memo']) ? 'data-tooltip="<span style=\'font-weight:bold\'>['.$status_list[$date]['undone'][$l]['mb_name'].' / '.$status_list[$date]['undone'][$l]['mo_datetime']."]</span><br />".nl2br($status_list[$date]['undone'][$l]['memo']).'"' : ''?>><a href="javascript:showManageWin('<?=$status_list[$date]['undone'][$l]['mb_id']?>');void(0)"><span class="calendar-memo-item undone"><?=$status_list[$date]['undone'][$l]['memo']?></span></a></li>
 				<?
@@ -176,7 +176,7 @@ include_once(G5_ADMIN_PATH."/admin.head.php");
 
 				<?
 					
-						for($l=0; $l<count($status_list[$date]['done']); $l++) { 
+						for($l=0; $l<count(array($status_list[$date]['done'])); $l++) { 
 						
 				?>
 						<li <?=($status_list[$date]['done'][$l]['memo']) ? 'data-tooltip="<span style=\'font-weight:bold\'>['.$status_list[$date]['done'][$l]['mb_name'].' / '.$status_list[$date]['done'][$l]['mo_datetime']."]</span><br />".nl2br($status_list[$date]['done'][$l]['memo']).'"' : ''?>><a href="javascript:showManageWin('<?=$status_list[$date]['done'][$l]['mb_id']?>');void(0)"><span class="calendar-memo-item done"><?=$status_list[$date]['done'][$l]['memo']?></span></a></li>

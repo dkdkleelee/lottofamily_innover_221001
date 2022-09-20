@@ -95,7 +95,7 @@ Class PG /*extends Base*/
 		
 		$pg_url = $this->pgInfo['pay_url'];
 		$g_code = $this->pgInfo['id'];
-		$redirect_url = "http://".$_SERVER[HTTP_HOST]."/service/public/common/pay_result_process.php?pg=".$this->pgName."&sb_no=".$this->serviceBuy['sb_no']."&mb_id=".$this->serviceBuy['mb_id']."&return_url=".$_POST['return_url']."&";
+		$redirect_url = "http://".$_SERVER['HTTP_HOST']."/service/public/common/pay_result_process.php?pg=".$this->pgName."&sb_no=".$this->serviceBuy['sb_no']."&mb_id=".$this->serviceBuy['mb_id']."&return_url=".$_POST['return_url']."&";
 
 		$param = array(
 				'g_code'   => $g_code,
@@ -170,7 +170,7 @@ Class PG /*extends Base*/
 
 		$result = $this->postJson($this->pgInfo['domain'].$this->pgInfo['pay_url'], $param);
 
-		$redirect_url = "http://".$_SERVER[HTTP_HOST]."/service/public/common/payup_pay_result_process.php";
+		$redirect_url = "http://".$_SERVER['HTTP_HOST']."/service/public/common/payup_pay_result_process.php";
 		
 		$result = json_decode($result);
 
@@ -211,7 +211,7 @@ Class PG /*extends Base*/
 
 		$result = $this->postJson($this->pgInfo['domain'].$this->pgInfo['cancel_url'], $param);
 
-		$redirect_url = "http://".$_SERVER[HTTP_HOST]."/service/public/common/payup_cancel_result_process.php";
+		$redirect_url = "http://".$_SERVER['HTTP_HOST']."/service/public/common/payup_cancel_result_process.php";
 
 		$result = json_decode($result);
 ?>
@@ -264,7 +264,7 @@ Class PG /*extends Base*/
 
 		$result = $this->post($this->pgInfo['pay_url'], $param);
 		
-		$redirect_url = "http://".$_SERVER[HTTP_HOST]."/service/public/common/sh_pay_result_process.php";
+		$redirect_url = "http://".$_SERVER['HTTP_HOST']."/service/public/common/sh_pay_result_process.php";
 
 		$result = json_decode($result);
 
@@ -317,7 +317,7 @@ Class PG /*extends Base*/
 
                 $result = $this->post($this->pgInfo['pay_url'], $param);
 
-                $redirect_url = "http://".$_SERVER[HTTP_HOST]."/service/public/common/sh_pay_result_process2.php";
+                $redirect_url = "http://".$_SERVER['HTTP_HOST']."/service/public/common/sh_pay_result_process2.php";
 
                 $result = json_decode($result);
 
@@ -369,7 +369,7 @@ Class PG /*extends Base*/
 
 
 
-		//$redirect_url = "http://".$_SERVER[HTTP_HOST]."/service/public/common/sh_pay_result_process.php";
+		//$redirect_url = "http://".$_SERVER['HTTP_HOST']."/service/public/common/sh_pay_result_process.php";
 		//exit;
 ?>
 	<html>

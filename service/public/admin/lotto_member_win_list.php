@@ -13,7 +13,7 @@ use Acesoft\LottoApp\LottoService;
 use Acesoft\LottoApp\TermService;
 
 $param1 = Utils::getParameters(array('page'));
-$list_url = "http://".$_SERVER[HTTP_HOST].$_SERVER[PHP_SELF]."?".$param1;
+$list_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?".$param1;
 
 // lotto service config
 $lottoServiceConfig = new LottoServiceConfig();
