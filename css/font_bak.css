@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,600,700,900&subset=latin-ext');
+@font-face {
+    //src:   url(font.woff2);
+      src:   url(https://fonts.gstatic.com/l/font?kit=io81c1khiA-sUkrxyIYV40GjUkunQHMWmRPZyJr9dCpdXBIOq3Xcd7UDIlsdRgQGlgWaYWDM7fK9eZvkteZZum5fFCCFJZ2vl8pECIvsNiY&skey=9f97eed2e89af09d&v=v11) format('woff2');
+}
+
+/*ie 폰트 적용 */
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 300;
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'),
+       url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'),
+       url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');
+}
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),
+  url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),
+  url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');
+}
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 500;
+   src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'),
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'),
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');
+ }
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 700;
+   src: url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'),
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'),
+        url(//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype');
+ }
+
+/* 
+ * Nanum Gothic (Korean) http://www.google.com/fonts/earlyaccess
+ */
+
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v4/NanumGothic-Regular.eot);
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v4/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v4/NanumGothic-Regular.woff2) format('woff2'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v4/NanumGothic-Regular.woff) format('woff'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v4/NanumGothic-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 700;
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v4/NanumGothic-Bold.eot);
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v4/NanumGothic-Bold.eot?#iefix) format('embedded-opentype'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v4/NanumGothic-Bold.woff2) format('woff2'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v4/NanumGothic-Bold.woff) format('woff'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v4/NanumGothic-Bold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 800;
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v4/NanumGothic-ExtraBold.eot);
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v4/NanumGothic-ExtraBold.eot?#iefix) format('embedded-opentype'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v4/NanumGothic-ExtraBold.woff2) format('woff2'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v4/NanumGothic-ExtraBold.woff) format('woff'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v4/NanumGothic-ExtraBold.ttf) format('truetype');
+}
