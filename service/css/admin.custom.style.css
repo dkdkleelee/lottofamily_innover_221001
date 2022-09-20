@@ -1,0 +1,188 @@
+@import url("./font-awesome-4.0.3/css/font-awesome.min.css");
+
+	.info_container {
+		width:100%;
+		/*border-bottom: 1px solid #e4e5e7;*/
+		border-collapse: all;
+		display:inline-block;
+		/*padding: 0px 20px 0px 20px;*/
+	}
+
+	.item {
+		float:left;
+		border-top: 1px solid #e4e5e7;
+		display: table-cell;
+		
+	}
+
+	.item * {
+		vertical-align: middle;
+	}
+
+	.item table {
+		width:100%;
+		padding: 0px;
+		margin: 0px;
+		border-spacing: 0px
+	}
+
+	.item label {
+		display: inline-block;
+		width: 130px;
+		padding: 7px;
+		text-align:right;
+		font-weight: bold;
+		color: #333;
+		background-color: #fafafa;
+		border-right: 1px solid #e4e5e7;
+		margin-right: 2px;
+	}
+
+	.item .td-lable {
+		
+		width: 130px;
+		padding: 7px;
+		text-align:right;
+		font-weight: bold;
+		color: #333;
+		background-color: #fafafa;
+		border-right: 1px solid #e4e5e7;
+		margin-right: 2px;
+	}
+
+	.item td {
+		padding-left:6px;
+	}
+
+	.third {
+		width: 33.3%;
+		
+	}
+
+	.half {
+		width: 50%;
+	}
+
+	.full {
+		width: 100%;
+	}
+
+	.clear {
+		clear: both;
+	}
+
+.content_wrap {
+
+	padding:0px;
+	margin:5px;
+}
+.search_box { 
+	width:95%;
+	padding:0px;
+    margin-bottom: 10px;
+}
+
+.btn_box { 
+	width:95%;
+	padding:15px;
+}
+
+.al {
+	text-align:left !important;
+}
+
+.ar {
+	text-align:right;
+}
+
+.ac {
+	text-align:center;
+}
+
+.btitle {
+	font-family:dotum;
+	font-size:12pt;
+	font-weight:bold;
+	color:#6c6c6c;
+    text-align: left;
+    padding:10px 0px 10px 20px;
+    display: block;
+	border-bottom: 1px solid #eeeeee;
+	width: auto !important;
+}
+
+.f_blue { color:#333399 }
+.help_text { color:#ff6633;padding:10px 0px 5px 10px;display:block;font-size: 14px; }
+
+
+#bid_list {width:100%;text-align:left;padding-left:15px;float: left;}
+.bid_info_container {padding:5px 0px 5px 0px;}
+.bid_items { list-style:none;display:inline-block;margin:5px 0px 5px 0px;padding: 0px; }
+.bid_item { float:left;padding:1px 10px 0px 10px;text-align: center; }
+.item_com_name { width:130px }
+.item_price { width:120px }
+.item_file { width: 80px}
+.acceped {color:#6666cc}
+
+.bid_notice_container { width:250px;float:left;margin-right:15px }
+
+
+/* 카운트다운 */
+.timer_container {float:right;width:230px;font-size:15pt;font-weight:bold;padding:0px 20px 20px 0px}
+.is-countdown{text-align: right;}
+.countdown-amount {color:#ff0033}
+.countdown-period {margin-right:10px}
+
+ul#tab  {
+    float: right;
+    margin-bottom: 10px;
+    padding-left: 1px;
+    zoom: 1;
+}
+
+#tab ul:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: "";
+}
+
+#tab li {
+	
+	list-style:none;
+    float: left;
+    margin-bottom: -1px;
+}
+
+#tab a.tab_on {
+    z-index: 2;
+    border: 1px solid #ff6633;
+    background: #ff6633;
+    color: #ffffff;
+    font-weight: 600;
+}
+#tab a {
+    display: block;
+    position: relative;
+    margin-left: -1px;
+    width: 138px;
+    font-size: 1.0em;
+    border: 1px solid #ddd;
+    background: #f6f6f6;
+    color: #353535;
+    text-align: center;
+    line-height: 1.2em;
+    cursor: pointer;
+    font-weight: 600;
+    height: 30px;
+    line-height: 30px;
+	text-decoration: none;
+}
+
+.line-legend > li span {
+    vertical-align: middle;
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+}

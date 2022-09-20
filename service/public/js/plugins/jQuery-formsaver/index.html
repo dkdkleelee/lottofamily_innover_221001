@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery formsaver.js demo</title>
+<style>
+#testform .field {
+width: 400px;
+margin: 0 5px 10px 5px;
+}
+#testform .field .label {
+width: 160px;
+display: inline-block;
+vertical-align: top;
+}
+#testform .field__textarea, #testform .field__radiogroup, #testform .field__select, #testform .field__multipleselect {
+display: inline-block;
+}
+#testform .field__radiogroup {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+#message {
+margin-top: 10px;
+color: #777777;
+}
+</style>
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.formsaver.js"></script>
+</head>
+<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="http://www.jqueryscript.net/form/jQuery-Plugin-To-Save-Restore-Form-Data-formsaver-js.html">Download This Plugin</a></li>
+<li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<h1 style="margin-top:150px;">jQuery formsaver.js demo</h1>
+<form id="testform">
+<div class="field">
+<label class="label" for="id_text_input">Text input</label>
+<input type="text" name="text_input" id="id_text_input">
+</div>
+<div class="field">
+<label class="label" for="id_textarea">Textarea</label>
+<textarea class="field__textarea" name="textarea" id="id_textarea"></textarea>
+</div>
+<div class="field">
+<label class="label" for="id_checkbox_input">Checkbox input</label>
+<input type="checkbox" name="checkbox_input" id="id_checkbox_input">
+</div>
+<div class="field"> <span class="label" for="id_text_input">Radio inputs</span>
+<ul class="field__radiogroup">
+<li>
+<label for="id_radio_input_1">
+<input type="radio" name="radio_input" value="1" id="id_radio_input_1">
+Russia</label>
+</li>
+<li>
+<label for="id_radio_input_2">
+<input type="radio" name="radio_input" value="2" id="id_radio_input_2">
+USA</label>
+</li>
+<li>
+<label for="id_radio_input_3">
+<input type="radio" name="radio_input" value="3" id="id_radio_input_3">
+Japan</label>
+</li>
+</ul>
+</div>
+<div class="field">
+<label class="label" for="id_select">Select</label>
+<select class="field__select" name="select" id="id_select">
+<option value="">...</option>
+<option value="1">Archangel</option>
+<option value="2">Kusanagi</option>
+<option value="3">Eternal</option>
+</select>
+</div>
+<div class="field">
+<label class="label" for="id_multiple_select">Multiple Select</label>
+<select class="field__multipleselect" name="multiple_select" id="id_multiple_select" multiple>
+<option value="1">Chaos</option>
+<option value="2">Gaia</option>
+<option value="3">Abyss</option>
+<option value="4">Saviour</option>
+<option value="5">Impulse</option>
+</select>
+</div>
+<div class="controls">
+<button class="control_save">Save</button>
+<button class="control_reset" type="reset">Reset</button>
+<button class="control_restore">Restore</button>
+</div>
+<div id="message"></div>
+</form>
+<script type="text/javascript">
+            $(".control_save").click(function () {
+                $("#testform").saveForm();
+                $("#message").text('Data was successfully saved. Now, try to reset form (via page reloading or "reset" button) and restore saved data.');
+                return false;
+            });
+
+            $(".control_restore").click(function () {
+                $("#testform").restoreForm();
+                $("#message").empty();
+                return false;
+            });
+        </script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

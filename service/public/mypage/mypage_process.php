@@ -1,0 +1,56 @@
+<?php
+include_once("./_common.php");
+
+use Acesoft\Common\Utils;
+use Acesoft\LottoApp\LottoServiceConfig;
+use Acesoft\LottoApp\LottoService;
+use Acesoft\LottoApp\Member\User;
+
+
+switch($_POST['proc']) {
+
+	case "extractNumbers" :
+
+		$lottoService = new LottoService();
+
+
+		// 설정
+		$config = Array(
+			'lc_cur_ining' => $_POST['lc_cur_ining'],
+			'lc_include_numbers' => explode(',', $_POST['lc_include_numbers']),
+			'lc_include_rate' => $_POST['lc_include_rate'],
+			'lc_exclude_numbers' => explode(',', $_POST['lc_exclude_numbers']),
+			'lc_exclude_rate' => $_POST['lc_exclude_rate'],
+			'lc_odd_rate' => $_POST['lc_odd_rate'],
+			'lc_even_rate' => $_POST['lc_even_rate'],
+			'lc_uoddEven_use' => $_POST['lc_uoddEven_use'],
+			'lc_permit_continue_num' => $_POST['lc_permit_continue_num'],
+			'lc_exclude_win_num' => $_POST['lc_exclude_win_num'],
+			'lc_permit_ac_num' => $_POST['lc_permit_ac_num'],
+			'lc_ac_num_use' => $_POST['lc_ac_num_use'],
+			'lc_except_ining' => $_POST['lc_except_ining']
+		);
+
+
+		$lottoService->extractNumbers($config, '', $_POST['extract_number_count']);
+
+
+		Utils::goUrl("./lotto_extract_numbers.php?","추출완료");
+		break;
+
+	case 'updateExtractDate':
+		$user = new User();
+		$user->updateExtractDate($_POST['mb_id'], $_POST['mb_extract_weekday']);
+
+		Utils::goUrl('',"수정완료");
+		break;
+
+	case 'addNumber':
+		$lottoService = new LottoService();
+		$numbers = explode(',', $_POST['selected_numbers']);
+		$lottoService->addNumber($numbers, $_POST['mb_id'], 'user');
+
+		Utils::goUrl($_POST['return_url'],	"지정번호를 저장하였습니다.");
+		break;
+
+}
