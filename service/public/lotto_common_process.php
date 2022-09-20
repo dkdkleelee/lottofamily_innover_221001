@@ -10,7 +10,7 @@ use Acesoft\LottoApp\TermService;
 use Acesoft\LottoApp\Member\User;
 use Acesoft\Common\Message;
 
-error_log ($_POST['proc'], 3, "/var/log/httpd/error_log");
+//error_log ($_POST['proc'], 3, "/var/log/httpd/error_log");
 //echo '<script>console.log("test")</script>';
 
 switch($_POST['proc']) {
@@ -19,7 +19,7 @@ switch($_POST['proc']) {
 			
 		$data = $lottoService->getWinData($_POST['inning']);
 
-		error_log ('test2', 3, "/var/log/httpd/error_log");
+		//error_log ('test2', 3, "/var/log/httpd/error_log");
 
 		if($data['lw_inning']) {
 		

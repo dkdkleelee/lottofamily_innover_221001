@@ -36,7 +36,7 @@ switch($_POST['proc']) {
 					$pg_url = $pg_info['pay_url'];
 					$g_code = $pg_info['id'];
 
-					$redirect_url = "http://".$_SERVER[HTTP_HOST]."/service/public/common/pay_result_process.php?sb_no=".$sb_no."&return_url=close&";
+					$redirect_url = "http://".$_SERVER['HTTP_HOST']."/service/public/common/pay_result_process.php?sb_no=".$sb_no."&return_url=close&";
 
 					if(!$g_code) {
 						alert_close('PG정보를 확인해주세요.');

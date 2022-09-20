@@ -20,8 +20,8 @@ $termService = new TermService();
 $param =  Utils::getParameters(array('nocache','sc','sv','r_msg'));
 $param1 = Utils::getParameters(array('page','nocache','r_msg'));
 $param2 =  Utils::getParameters(array('nocache','r_msg'));
-$return_url = "http://".$_SERVER[HTTP_HOST].$_SERVER[PHP_SELF]."?".$param2;
-$list_url = "http://".$_SERVER[HTTP_HOST].$_SERVER[PHP_SELF]."?".$param1;
+$return_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?".$param2;
+$list_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?".$param1;
 
 
 // 목록

@@ -46,7 +46,7 @@ class Utils {
     public static function getPagination($total_page, $cur_page, $list_url='', $page_per_block='10', $page_param_name='page')
     {
 
-            if(!$list_url) $list_url = "http://".$_SERVER[HTTP_HOST].$_SERVER[DOCUMENT_URI]."?";
+            if(!$list_url) $list_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['DOCUMENT_URI']."?";
 
             $cur_page = ($cur_page) ? $cur_page : 1;
             $total_block = ceil($total_page/$page_per_block);
@@ -83,7 +83,7 @@ class Utils {
     public static function getBasicPagination($total_page, $cur_page, $list_url='', $page_per_block='10', $page_param_name='page')
     {
 
-            if(!$list_url) $list_url = "http://".$_SERVER[HTTP_HOST].$_SERVER[DOCUMENT_URI]."?";
+            if(!$list_url) $list_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['DOCUMENT_URI']."?";
 
             $cur_page = ($cur_page) ? $cur_page : 1;
             $total_block = ceil($total_page/$page_per_block);
@@ -118,6 +118,11 @@ class Utils {
     {
 		array_push($except_array, array('nocache'));
 
+		if(empty($_POST) && empty($_GET)) {
+		//if(count($_POST) == 0 && count($_GET) == 0) {
+			return null;
+		}
+
         $temp_param = array_merge($_POST, $_GET);
         foreach($temp_param as $key => $value) {
             if($type=='except') {
@@ -149,10 +154,10 @@ class Utils {
         $regExp = "/[(\.".implode(")|(\.", $allows).")]$/i";
 
         $result['upload'] = false;
-        if (preg_match($regExp, $_FILES[$srcName][name])) {
+        if (preg_match($regExp, $_FILES[$srcName]['name'])) {
             // 아이콘 용량이 설정값보다 이하만 업로드 가능
 
-            if ($_FILES[$srcName][size] <= $maxSize)
+            if ($_FILES[$srcName]['size'] <= $maxSize)
             {
                 // 중복파일명 이름변경
                 if(is_file($destFile)) {
@@ -168,19 +173,19 @@ class Utils {
                     }
                 }
 
-                move_uploaded_file($_FILES[$srcName][tmp_name], $destFile);
+                move_uploaded_file($_FILES[$srcName]['tmp_name'], $destFile);
                 chmod($destFile, 0606);
                 $result['upload'] = true;
 
-				$result['oriFile'] = $_FILES[$srcName][name];
+				$result['oriFile'] = $_FILES[$srcName]['name'];
 				$result['type'] = @getimagesize($destFile)[2];
-				$result['size'] = $_FILES[$srcName][size];
-				$result['ext'] = strtolower(array_pop(explode('.', $_FILES[$srcName][name])));
+				$result['size'] = $_FILES[$srcName]['size'];
+				$result['ext'] = strtolower(array_pop(explode('.', $_FILES[$srcName]['name'])));
             } else {
-                $result['message'] .= "\\n[".$_FILES[$srcName][name]."] 업로드 용량을 초과하였습니다.";
+                $result['message'] .= "\\n[".$_FILES[$srcName]['name']."] 업로드 용량을 초과하였습니다.";
             }
         } else {
-            $result['message'] .= "\\n[".$_FILES[$srcName][name]."] 업로드가 불가능한 확장자 입니다.";
+            $result['message'] .= "\\n[".$_FILES[$srcName]['name']."] 업로드가 불가능한 확장자 입니다.";
         }
 
         $result['destFile'] = $destFile;

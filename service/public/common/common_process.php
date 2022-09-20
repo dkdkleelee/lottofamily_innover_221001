@@ -211,7 +211,7 @@ else
 			exit;
 		}
 
-		$redirect_url = "http://".$_SERVER[HTTP_HOST]."/service/public/common/pay_result_process.php?sb_no=".$row_sb['sb_no']."&mb_id=".$_POST['mb_id']."&return_url=".$_POST['return_url']."&";
+		$redirect_url = "http://".$_SERVER['HTTP_HOST']."/service/public/common/pay_result_process.php?sb_no=".$row_sb['sb_no']."&mb_id=".$_POST['mb_id']."&return_url=".$_POST['return_url']."&";
 
 		$param = array(
 				'g_code'   => $g_code,

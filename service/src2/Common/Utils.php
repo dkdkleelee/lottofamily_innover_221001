@@ -46,7 +46,7 @@ class Utils {
     public static function getPagination($total_page, $cur_page, $list_url='', $page_per_block='10', $page_param_name='page')
     {
 
-            if(!$list_url) $list_url = "http://".$_SERVER[HTTP_HOST].$_SERVER[DOCUMENT_URI]."?";
+            if(!$list_url) $list_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['DOCUMENT_URI']."?";
 
             $cur_page = ($cur_page) ? $cur_page : 1;
             $total_block = ceil($total_page/$page_per_block);
@@ -83,7 +83,7 @@ class Utils {
     public static function getBasicPagination($total_page, $cur_page, $list_url='', $page_per_block='10', $page_param_name='page')
     {
 
-            if(!$list_url) $list_url = "http://".$_SERVER[HTTP_HOST].$_SERVER[DOCUMENT_URI]."?";
+            if(!$list_url) $list_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['DOCUMENT_URI']."?";
 
             $cur_page = ($cur_page) ? $cur_page : 1;
             $total_block = ceil($total_page/$page_per_block);

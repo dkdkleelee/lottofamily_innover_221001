@@ -19,8 +19,8 @@ use \Acesoft\LottoApp\LottoService;
 // set param and paging url
 $param = Utils::getParameters(array('nocache'));
 $param1 = Utils::getParameters(array('page','url','nocache'));
-$return_url = "http://".$_SERVER[HTTP_HOST].$_SERVER[PHP_SELF]."?".$param1;
-$pay_return_url = "http://".$_SERVER[HTTP_HOST].$_SERVER[PHP_SELF]."?";
+$return_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?".$param1;
+$pay_return_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?";
 
 // 유져
 $user = new User();

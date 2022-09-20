@@ -11,7 +11,7 @@ return [
 			'host' => 'localhost',
 			'database' => 'lottofamily',
 			'username' => 'lottofamily',
-			'password' => 'db@family1215',
+			'password' => '1234qwer@@',
 			'charset' => 'utf8',
 			'prefix' => ''
 		],

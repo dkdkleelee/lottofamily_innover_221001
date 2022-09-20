@@ -12,7 +12,7 @@ use Acesoft\Common\Message;
 
 //▶ pagination url
 $param1 = Utils::getParameters(array('page'));
-$list_url = "http://".$_SERVER[HTTP_HOST].$_SERVER[PHP_SELF]."?".$param1;
+$list_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?".$param1;
 
 
 $lottoServiceConfig = new LottoServiceConfig();
