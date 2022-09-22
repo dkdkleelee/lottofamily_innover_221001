@@ -124,6 +124,9 @@ class Utils {
 		}
 
         $temp_param = array_merge($_POST, $_GET);
+
+		$param = array();
+
         foreach($temp_param as $key => $value) {
             if($type=='except') {
                 if(!in_array($key, $except_array)) {
@@ -135,7 +138,7 @@ class Utils {
                 }
             }
         }
-        $param = (count(array($param)) > 0) ? implode("&", $param) : "";
+        $param = (count($param) > 0) ? implode("&", $param) : "";
         return $param;
     }
 
