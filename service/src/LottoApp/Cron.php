@@ -72,8 +72,9 @@ Class Cron extends Base
 
 		// 당첨상세정보 - 일요일
 		if($weekday == 0) {
-			if($hour == 14) {
-				$this->getDetailWinData();
+			//if($hour == 14) {
+			if($hour == 00) {
+				//$this->getDetailWinData();
 			}
 		}
 
