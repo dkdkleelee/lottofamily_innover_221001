@@ -135,7 +135,7 @@ class Utils {
                 }
             }
         }
-        $param = (count($param) > 0) ? implode("&", $param) : "";
+        $param = (count(array($param)) > 0) ? implode("&", $param) : "";
         return $param;
     }
 
