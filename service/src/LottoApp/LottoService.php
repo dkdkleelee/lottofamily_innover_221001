@@ -184,8 +184,10 @@ class LottoService extends Base
 			$ids[] = $list[$i]['le_no'];
 		}
 
-		$content .= "\n회원님에게 좋은결과를 보여드릴 수 있도록 노력하는 ".$this->site_conf['name']."가 되겠습니다.\n";
-		$content .= "-".$this->site_conf['name']."-";
+		//$content .= "\n회원님에게 좋은결과를 보여드릴 수 있도록 노력하는 ".$this->site_conf['name']."가 되겠습니다.\n";
+		$content .= "\n회원님에게 좋은결과를 보여드릴 수 있도록 노력하는 패밀리가 되겠습니다.\n";
+		//$content .= "-".$this->site_conf['name']."-";
+		$content .= "-패밀리-";
 
 		// 해당번호 발급상태로 업데이트
 		$this->db->where('le_no', $ids, 'IN');
@@ -237,8 +239,10 @@ class LottoService extends Base
 			$ids[] = $list[$i]['le_no'];
 		}
 
-		$content .= "\n회원님에게 좋은결과를 보여드릴 수 있도록 노력하는 ".$this->site_conf['name']."가 되겠습니다.\n";
-		$content .= "-".$this->site_conf['name']."-";
+		//$content .= "\n회원님에게 좋은결과를 보여드릴 수 있도록 노력하는 ".$this->site_conf['name']."가 되겠습니다.\n";
+		$content .= "\n회원님에게 좋은결과를 보여드릴 수 있도록 노력하는 패밀리가 되겠습니다.\n";
+		//$content .= "-".$this->site_conf['name']."-";
+		$content .= "-패밀리-";
 
 		/// 해당번호 발급상태로 업데이트
 		$this->db->where('le_no', $ids, 'IN');
@@ -1164,8 +1168,10 @@ class LottoService extends Base
 					$ids[] = $list_number['le_no'];
 				}
 
-				$content .= "\n회원님에게 좋은결과를 보여드릴 수 있도록 노력하는 로또패밀리가 되겠습니다.\n";
-				$content .= "-".$this->site_conf['name']."-";
+				//$content .= "\n회원님에게 좋은결과를 보여드릴 수 있도록 노력하는 로또패밀리가 되겠습니다.\n";
+				$content .= "\n회원님에게 좋은결과를 보여드릴 수 있도록 노력하는 패밀리가 되겠습니다.\n";
+				//$content .= "-".$this->site_conf['name']."-";
+				$content .= "-패밀리-";
 
 				if($issue_count > 0) {
 					$result['issued_member_count']++;
@@ -1414,8 +1420,10 @@ class LottoService extends Base
 						$ids[] = $list_number['le_no'];
 					}
 
-					$content .= "\n회원님에게 좋은결과를 보여드릴 수 있도록 노력하는 ".$this->site_conf['name']."가 되겠습니다.\n";
-					$content .= "-".$this->site_conf['name']."-";
+					//$content .= "\n회원님에게 좋은결과를 보여드릴 수 있도록 노력하는 ".$this->site_conf['name']."가 되겠습니다.\n";
+					$content .= "\n회원님에게 좋은결과를 보여드릴 수 있도록 노력하는 패밀리가 되겠습니다.\n";
+					//$content .= "-".$this->site_conf['name']."-";
+					$content .= "-패밀리-";
 
 					if($issue_count > 0) {
 						$result['issued_member_count']++;
