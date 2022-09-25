@@ -134,7 +134,7 @@ Class Cron extends Base
 	}
 
 	public function log($txt) {
-		file_put_contents('/home/lottofamily/www/data/log/cron_log.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+		file_put_contents('/home/lotto/www/lottofamily/data/log/cron_log.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
 		//file_put_contents('/home/lotto/data/log/cron_log.txt', $txt.PHP_EOL);
 	}
 }

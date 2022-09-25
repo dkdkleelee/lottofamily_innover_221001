@@ -44,7 +44,7 @@ if($_POST['pg'] == 'PG2') {
         $req_dump = print_r($_POST, TRUE);
 
 
-        file_put_contents('/home/lottofamily/www/data/log/request.log', $req_dump.PHP_EOL , FILE_APPEND | LOCK_EX);
+        file_put_contents('/home/lotto/www/lottofamily/data/log/request.log', $req_dump.PHP_EOL , FILE_APPEND | LOCK_EX);
 
 }
 
@@ -90,5 +90,5 @@ else if($signature == $_POST['signature']) {
 	$req_dump = print_r($_POST, TRUE);
 
 
-	file_put_contents('/home/lottofamily/www/data/log/request.log', $req_dump.PHP_EOL , FILE_APPEND | LOCK_EX);
+	file_put_contents('/home/lotto/www/lottofamily/data/log/request.log', $req_dump.PHP_EOL , FILE_APPEND | LOCK_EX);
 }

@@ -9,7 +9,7 @@ use Acesoft\LottoApp\TermService;
 use Acesoft\Common\Message;
 
 $req_dump = print_r($_REQUEST, TRUE);
-//file_put_contents('/home/lottofamily/www/data/log/channel.log', $req_dump.PHP_EOL , FILE_APPEND | LOCK_EX);
+//file_put_contents('/home/lotto/www/lottofamily/data/log/channel.log', $req_dump.PHP_EOL , FILE_APPEND | LOCK_EX);
 
 
 switch($_REQUEST['proc']) {
