@@ -49,8 +49,7 @@ Class Cron extends Base
 
 		// 미리 추출
 		if($weekday != 0 && $weekday != 6) { // 주중
-			// if($hour >= 8 && $hour <= 9) { // 8시에서 오후 9시
-			if($hour >= 3 && $hour <= 4) { // 8시에서 오후 9시
+			if($hour >= 8 && $hour <= 9) { // 8시에서 오후 9시
 				if($minute % 10 == 0) { // 매 10분마다
 					$this->preExtractor();
 				}
@@ -59,8 +58,7 @@ Class Cron extends Base
 
 		// 일자별 추출
 		if($weekday != 0 && $weekday != 6) { // 주중
-			//if($hour == 9 && $minute >= 30) { // 오전 9시30분// 10시에서 오후 7시
-			if($hour == 5 && $minute >= 30) { // 오전 7시30분// 10시에서 오후 7시
+			if($hour == 9 && $minute >= 30) { // 오전 9시30분// 10시에서 오후 7시
 				$this->checkExtract();
 			}
 		}
@@ -84,13 +82,7 @@ Class Cron extends Base
 			$this->checkSMSOff();
 
 		// SMS발송 큐 실행
-		if($hour == 9 && $minute >= 30) {
-			$this->message->proceedQueue('sms');	
-
-			//$this->lottoService->sendsms_setnotnull();
-		}
-		
-		
+		$this->message->proceedQueue('sms');
 
 	}
 
@@ -113,7 +105,7 @@ Class Cron extends Base
 		$row_win = $this->db->arrayBuilder()->getOne($this->tb['LottoWinNumbers']);
 
 		// 강제 실행
-		$this->lottoService->checkResult('1034', '', true);
+		$this->lottoService->checkResult('1033', '', true);
 
 		if(!$row_win['lw_no']) {// 업데이트가 안됐을때만 실행
 			//$this->lottoService->getNextWinNumbers();

@@ -117,7 +117,7 @@ class Message extends Base {
 		if($mb_id) $this->db->where('b.mb_id', $mb_id);
 		if($type) $this->db->where('a.type', $type);
 		$this->db->where('a.confirm', '1'); // 승인메세지만
-		$this->db->where("yearweek(b.created_at)=yearweek(now())");
+		//$this->db->where("yearweek(b.created_at)=yearweek(now())");
 		$this->db->where('a.sent_at is NULL');
 		$this->db->orderBy('b.created_at', 'ASC');
 		$this->db->join($this->tb['Msg']." as b", "a.message_id=b.id", "LEFT");
