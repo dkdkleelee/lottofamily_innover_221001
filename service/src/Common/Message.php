@@ -219,103 +219,57 @@ class Message extends Base {
 			$dest[] = str_replace('-', '', $member_row['mb_hp']);
 
 
+//cafe24 SERVICE
+$weekday = date('w');
 
-// $sms_url = "https://apis.aligo.in/send/"; // 전송요청 URL
-// $sms['user_id'] = "okxogns"; // SMS 아이디
-// $sms['key'] = "knfmfn2frv6a0qk8j2d3y6va1394kvcb";//인증키
-// /******************** 인증정보 ********************/
-// /******************** 전송정보 ********************/
-// $_POST['msg'] = $msg['message']; // 메세지 내용
-// $_POST['receiver'] = $member_row['mb_hp']; // 수신번호
-// $_POST['destination'] = ''; // 수신인 %고객
-// $_POST['sender'] = '1688-7551'; // 발신번호
-// $_POST['rdate'] = ''; // 예약일자 - 20161004 : 2016-10-04일기준
-// $_POST['rtime'] = ''; // 예약시간 - 1930 : 오후 7시30분
-// $_POST['testmode_yn'] = ''; // Y 인경우 실제문자 전송X , 자동취소(환불) 처리
-// /******************** 전송정보 ********************/
+// $sms_url = "https://sslsms.cafe24.com/sms_sender.php"; // 전송요청 URL
+// $sms['user_id'] = "abcpp4067"; // SMS 아이디
+// $sms['secure'] = "56d24d3e24d4e3f4cd8c8fcf83e69b2d";//인증키
 
-// $sms['msg'] = stripslashes($_POST['msg']);
-// $sms['receiver'] = $_POST['receiver'];
-// $sms['destination'] = $_POST['destination'];
-// $sms['sender'] = $_POST['sender'];
-// $sms['rdate'] = $_POST['rdate'];
-// $sms['rtime'] = $_POST['rtime'];
-// $sms['testmode_yn'] = empty($_POST['testmode_yn']) ? '' : $_POST['testmode_yn'];
-// // 이미지 전송시
-// if(!empty($_POST['image'])) {
-//         if(file_exists($_POST['image'])) {
-//                 $tmpFile = explode('/',$_POST['image']);
-//                 $str_filename = $tmpFile[sizeof($tmpFile)-1];
-//                 $tmp_filetype = 'image/jpeg';
-//                 $sms['image'] = '@'.$_POST['image'].';filename='.$str_filename. ';type='.$tmp_filetype;
-//         }
-// }
-// /*****/
-
-// $host_info = explode("/", $sms_url);
-// $port = $host_info[0] == 'https:' ? 443 : 80;
-
-// $oCurl = curl_init();
-
-// curl_setopt($oCurl, CURLOPT_PORT, $port);
-// curl_setopt($oCurl, CURLOPT_URL, $sms_url);
-// curl_setopt($oCurl, CURLOPT_POST, 1);
-// curl_setopt($oCurl, CURLOPT_RETURNTRANSFER, 1);
-// curl_setopt($oCurl, CURLOPT_POSTFIELDS, $sms);
-// curl_setopt($oCurl, CURLOPT_SSL_VERIFYPEER, FALSE);
-// $ret = curl_exec($oCurl);
-// curl_close($oCurl);
-//알리고 EOS 
-
-
-//임시 문자서비스
 $_POST['msg'] = $msg['message']; // 메세지 내용
-$_POST['msg'] = stripslashes($_POST['msg']); // 메세지 내용
 $_POST['receiver'] = $member_row['mb_hp']; // 수신번호
+//$_POST['receiver'] = '010-3535-1555';
 $_POST['destination'] = ''; // 수신인 %고객
 $_POST['sender'] = '1688-7551'; // 발신번호
 $_POST['rdate'] = ''; // 예약일자 - 20161004 : 2016-10-04일기준
 $_POST['rtime'] = ''; // 예약시간 - 1930 : 오후 7시30분
 $_POST['testmode_yn'] = ''; // Y 인경우 실제문자 전송X , 자동취소(환불) 처리
 
-$name = ""; //이름
-$phone = $_POST['receiver'];//휴대폰번호입력 (수신번호 다수인경우 쉼표( , )로 구분해서 입력가능)
-//$phone = "010-3535-1555";//휴대폰번호입력 (수신번호 다수인경우 쉼표( , )로 구분해서 입력가능)
-$callback = "1688-7551"; // 사전등록된 발신번호입력
-$subject = "패밀리";
-$msg = $_POST['msg']; //메시지
-$contents= ""; // MMS연동시 연동파일명(jpg파일) 또는 이미지 웹사이트 주소(http://www.사이트주소.com/이미지.jpg)
-$etc1="";
-$etc2="";
+/******************** 전송정보 ********************/
+$sms['msg'] = stripslashes($_POST['msg']);
+$sms['rphone'] = $_POST['receiver'];
+$sms['sphone1'] = '1688';
+$sms['sphone2'] = '7551';
+$sms['sphone3'] = '';
+$sms['rdate'] = '';
+$sms['rtime'] = '';
+//$sms['mode'] = base64_encode("1"); // base64 사용시 반드시 모드값을 1로 주셔야 합니다.
+//$sms['testflag'] = "Y";
 
-$host = "https://www.mymunja.co.kr"; 
-$data = array();
-$data['remote_id'] = "abcpp4067"; // 웹사이트 아이디
-$data['remote_pass'] = "rlaxo!4067"; // 웹사이트 비밀번호
-$data['remote_reserve'] = "";
-$data['remote_reservetime'] = "";
-$data['remote_name'] = $name;
-$data['remote_phone'] = $phone;
-$data['remote_callback'] = $callback;
-$data['remote_subject'] = $subject;
-$data['remote_msg'] = $msg;
-$data['remote_contents'] =$contents;
-$data['remote_etc1'] = $etc1;
-$data['remote_etc2'] = $etc2;
-$path = "/Remote/RemoteMms.html";
-//$path = "/Remote/RemoteSms.html";
-$host_url = $host.$path;
+if($weekday == 0) { // 6 토요일, 0 일요일
+	$sms['smsType'] = '';
+}else {
+	$sms['smsType'] = 'L';
+	$sms['title '] =  '-패밀리 추천번호-';
+	$sms['subject'] =  '-패밀리 추천번호-';
+}
+/*****/
 
-$curl = curl_init();
-curl_setopt($curl, CURLOPT_URL, $host_url);
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 10);
-curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
-curl_setopt($curl, CURLOPT_POST, true);
+$oCurl = curl_init();
+$url =  "https://sslsms.cafe24.com/sms_sender.php";
+$sms['user_id'] = "abcpp4067"; // SMS 아이디
+$sms['secure'] = "56d24d3e24d4e3f4cd8c8fcf83e69b2d"; // 인증키
+curl_setopt($oCurl, CURLOPT_URL, $url);
+curl_setopt($oCurl, CURLOPT_POST, 1);
+curl_setopt($oCurl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($oCurl, CURLOPT_POSTFIELDS, $sms);
+curl_setopt($oCurl, CURLOPT_SSL_VERIFYPEER, 0);
+$ret = curl_exec($oCurl);
+echo $ret;
+curl_close($oCurl);
 
-$return = curl_exec($curl);
-curl_close($curl);
+//usleep(50000); // 0.05초 지연
+error_log ("[".$weekday."] > ".$sms['rphone']." > ".$ret, 3, "/home/lotto/www/lottofamily/logs/sendsms.log");
 
 			//$hp = str_replace('-','', trim($member_row['mb_hp']));
 			//$list[]['bk_hp'] =  $hp;
@@ -338,9 +292,9 @@ curl_close($curl);
 
 				$termService = new TermService();
 
-				$termService->SaveSendSMS($wr_no, $_POST['sender'], $_POST['msg'], '0000-00-00 00:00:00', 1, 1);
+				$termService->SaveSendSMS($wr_no, $_POST['sender'], $msg['message'], '0000-00-00 00:00:00', 1, 1);
 
-        			$termService->OKSendSMS($wr_no, $member_row['mb_id'], $member_row['mb_name'], $member_row['mb_hp'], "문자가 발송되었습니다.");
+				$termService->OKSendSMS($wr_no, $member_row['mb_id'], $member_row['mb_name'], $member_row['mb_hp'], "문자가 발송되었습니다.");
 
 
 /*
@@ -419,4 +373,3 @@ $this->db->rawQuery("insert into {$g5['sms5_history_table']} set wr_no='$wr_no',
 	}
 	
 }
-
