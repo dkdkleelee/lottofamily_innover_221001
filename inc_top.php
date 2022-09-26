@@ -99,13 +99,7 @@ for($i=1; $i<=5; $i++) {
 		</p>
 		</li>
 
-		<li class="m4">
-                <a href="javascript:m3()" class="oneDep">패밀리 커뮤니티</a>
-                <p class="subDep">
-                <a href="javascript:m3s1()">패밀리수다방</a>
-		<a href="javascript:m6s1()">공지사항</a>
-		</p>
-		</li>
+		
 
 		<li class="m5">
 		<a href="javascript:m5()" class="oneDep">마이페이지</a>
@@ -114,6 +108,7 @@ for($i=1; $i<=5; $i++) {
 		<a href="javascript:m5s2()">추출번호관리</a>
 		<a href="javascript:m5s3()">내당첨내역조회</a>
 		<a href="javascript:m5s4()">정회원신청</a>
+		<a href="javascript:m6s1()">공지사항</a>
 		<!--a href="javascript:m5s5()">당첨시뮬레이터</a-->
 		</p>
 		</li>
