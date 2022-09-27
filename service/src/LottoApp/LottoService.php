@@ -1341,10 +1341,20 @@ class LottoService extends Base
 
 		//$this->db->where("a.mb_sms='1'");
 		$this->db->join($this->tb['TermServiceUse']." as b", "a.mb_id=b.mb_id AND su_enddate > NOW()", "LEFT");
-		$list = $this->db->arraybuilder()->get($this->tb['Member']." as a ", $page, "a.*, b.su_no, IF(b.sg_no <> '', b.sg_no, 0) as sg_no, b.su_enddate, b.su_pausedate, b.su_startdate, 
-				IF(DATEDIFF(su_enddate, now()) > 0, DATEDIFF(su_enddate, now()), 0) as leftDays, 
-				(select count(*) FROM ".$this->tb['LottoNumbers']." as c WHERE c.mb_id=a.mb_id AND le_inning='".$this_inning."' AND le_type='extractor') as issued_count ");
+		
+		//튜닝적용
+		$this->db->join("(select mb_id, count(*) cnt from lotto_numbers where 1=1 and le_inning = '".$this_inning."' and le_type = 'extractor' group by mb_id) as c", "c.mb_id = a.mb_id", "LEFT");
 
+		//원본
+		// $list = $this->db->arraybuilder()->get($this->tb['Member']." as a ", $page, "a.*, b.su_no, IF(b.sg_no <> '', b.sg_no, 0) as sg_no, b.su_enddate, b.su_pausedate, b.su_startdate, 
+		// 		IF(DATEDIFF(su_enddate, now()) > 0, DATEDIFF(su_enddate, now()), 0) as leftDays, 
+		// 		(select count(*) FROM ".$this->tb['LottoNumbers']." as c WHERE c.mb_id=a.mb_id AND le_inning='".$this_inning."' AND le_type='extractor') as issued_count ");
+
+		//튜닝적용
+		$list = $this->db->arraybuilder()->get($this->tb['Member']." as a ", $page, "a.*, b.su_no, IF(b.sg_no <> '', b.sg_no, 0) as sg_no, b.su_enddate, b.su_pausedate, b.su_startdate, 
+				IF(DATEDIFF(su_enddate, now()) > 0, DATEDIFF(su_enddate, now()), 0) as leftDays,
+				c.cnt as issued_count");
+		
 		$total_count= array();
 		$tmp_count = array();
 		for($i=0; $i<count($list); $i++) {

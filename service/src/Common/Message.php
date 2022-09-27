@@ -63,15 +63,16 @@ class Message extends Base {
 		//▶ order block
 		$this->db->orderBy('b.created_at', 'DESC');
 
-		//$this->db->where("yearweek(b.created_at)=yearweek(now())");
-		$this->db->where("DATE_FORMAT(b.created_at,'%Y-%m-%d') >= DATE_FORMAT(DATE_SUB(now(), INTERVAL 7 DAY),'%Y-%m-%d')");
+		$this->db->where("yearweek(b.created_at)=yearweek(now())");
+		//$this->db->where("DATE_FORMAT(b.created_at,'%Y-%m-%d') >= DATE_FORMAT(DATE_SUB(now(), INTERVAL 7 DAY),'%Y-%m-%d')"); //튜닝적용 사용안함
 
 		$this->db->where("a.type", "sms");
 
-		$this->db->join($this->tb['Msg']." as b", "a.message_id=b.id", "LEFT");
+		//$this->db->join($this->tb['Msg']." as b", "a.message_id=b.id", "LEFT"); //튜닝적용 사용안함
 		$this->db->join($this->tb['Member']." as c", "b.mb_id=c.mb_id", "LEFT");
 
-		$list = $this->db->arraybuilder()->paginate($this->tb['Msg_queue']." as a", $page, "a.*,a.message_id, b.message,  b.title, c.mb_id, c.mb_name, c.mb_hp");
+		//$list = $this->db->arraybuilder()->paginate($this->tb['Msg_queue']." as a", $page, "a.*,a.message_id, b.message,  b.title, c.mb_id, c.mb_name, c.mb_hp"); //튜닝적용 사용안함
+		$list = $this->db->arraybuilder()->paginate($this->tb['Msg']." as b inner join message_queue as a on  a.message_id = b.id and b.created_at >= str_to_date(date_sub(now(), interval 7 day), '%Y-%m-%d')", $page, "a.*,a.message_id, b.message,  b.title, c.mb_id, c.mb_name, c.mb_hp");
 
 		$link = Utils::getPagination($this->db->totalPages, $page, $url);
 
