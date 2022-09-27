@@ -1338,6 +1338,7 @@ class LottoService extends Base
 		$this->db->where(" (b.su_startdate IS NULL OR DATE_FORMAT(b.su_startdate,'%Y-%m-%d') <> DATE_FORMAT(NOW(),'%Y-%m-%d')) "); // 당일등록 서비스 제외
 		$this->db->where("b.su_pausedate IS NULL"); // 서비스 정지제외
 		$this->db->where("a.mb_status = '1'"); // 이용중
+		$this->db->where("(b.sg_no > 0 or a.mb_datetime > '2022-01-01')"); // 튜닝적용 (전)
 
 		//$this->db->where("a.mb_sms='1'");
 		$this->db->join($this->tb['TermServiceUse']." as b", "a.mb_id=b.mb_id AND su_enddate > NOW()", "LEFT");
