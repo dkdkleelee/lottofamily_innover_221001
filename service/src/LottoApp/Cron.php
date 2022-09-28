@@ -58,7 +58,7 @@ Class Cron extends Base
 
 		// 일자별 추출
 		if($weekday != 0 && $weekday != 6) { // 주중
-			if($hour == 9 && $minute >= 30) { // 오전 9시30분// 10시에서 오후 7시
+			if($hour >= 10 && $hour <= 19) { // 10시에서 오후 7시
 				$this->checkExtract();
 			}
 		}
@@ -72,8 +72,7 @@ Class Cron extends Base
 
 		// 당첨상세정보 - 일요일
 		if($weekday == 0) {
-			//if($hour == 14) {
-			if($hour == 00) {
+			if($hour == 14) {
 				//$this->getDetailWinData();
 			}
 		}
@@ -105,7 +104,7 @@ Class Cron extends Base
 		$row_win = $this->db->arrayBuilder()->getOne($this->tb['LottoWinNumbers']);
 
 		// 강제 실행
-		$this->lottoService->checkResult('1034', '', true);
+		$this->lottoService->checkResult('1030', '', true);
 
 		if(!$row_win['lw_no']) {// 업데이트가 안됐을때만 실행
 			//$this->lottoService->getNextWinNumbers();
@@ -134,6 +133,7 @@ Class Cron extends Base
 	}
 
 	public function log($txt) {
-		file_put_contents('/home/lotto/www/lottofamily/data/log/cron_log.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+		file_put_contents('/home/lottofamily/www/data/log/cron_log.txt', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+		//file_put_contents('/home/lotto/data/log/cron_log.txt', $txt.PHP_EOL);
 	}
 }
