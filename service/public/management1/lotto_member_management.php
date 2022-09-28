@@ -248,7 +248,8 @@ include_once(G5_PATH.'/head.sub.php');
 		</td>
 		<th width="140px">주당 평균구매</th>
 		<td>
-			<?=number_format($data['mb_average_game_number'])?>게임 구매
+			<!-- number_format($data['mb_average_game_number'])게임 구매 -->
+			<?=(int)$data['mb_average_game_number'] ? number_format($data['mb_average_game_number']) : '--' ?>게임 구매
 		</td>
 	</tr>
 	<tr>
