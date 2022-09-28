@@ -1386,6 +1386,10 @@ class LottoService extends Base
 
 		// 등급별 발송
 		foreach($total_count as $sg_no => $num) {
+			//DK 에러처리
+			if($num <0 ){
+				$num = 0;
+			}
 
 			// 미발급 번호 여분조회
 			$pageLimit = $num + 50;
